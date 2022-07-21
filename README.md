@@ -8,4 +8,22 @@ Back-end реализован на Django.
 
 Генерация QR'ов сделана через библиотеку PIL, за основу берётся шаблон:
 
-![](https://github.com/SherstennikovDaniil/servemepls-demo/raw/main/caller/static/template.png "Шаблон")
+![](https://github.com/SherstennikovDaniil/servemepls-demo/raw/main/caller/static/template.png)
+
+
+Далее через PIL в шаблон вставляется QR столика:
+
+![](https://github.com/SherstennikovDaniil/servemepls-demo/raw/main/src/gen.jpg)
+
+Выгрузка QR-кодов архивом ресторана реализована через Action в админ панели.
+
+---
+Каждый QR ведёт на страницу подобного типа:
+
+![](https://github.com/SherstennikovDaniil/servemepls-demo/raw/main/src/caller.jpg)
+
+При нажатии кнопки в Telegram-боте официанту приходит уведомление: `Столик №5 просит подойти.`
+
+Так же страница вызова официанта служит способом продвижения социальных сетей ресторана, если такие имеются.
+
+Оформление кода(например наличие сикрет ключа и config файла) обусловлено спешкой и dev версией сервиса.
