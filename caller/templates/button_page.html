@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ rest }}</title>
+    {% load static %}
+    <style>
+        .bg {
+            animation: slide 3s ease-in-out infinite alternate;
+            background-image: linear-gradient(-60deg, #ffebd6 50%, #ffc68a 50%);
+            bottom: 0;
+            left: -50%;
+            opacity: .5;
+            position: fixed;
+            right: -50%;
+            top: 0;
+            z-index: -1;
+        }
+
+        .bg2 {
+            animation-direction: alternate-reverse;
+            animation-duration: 4s;
+        }
+
+        .bg3 {
+            animation-duration: 5s;
+        }
+
+        .header {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            font-size: 4vh;
+            color: black;
+            text-align: center;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(-25%);
+            }
+            100% {
+                transform: translateX(25%);
+            }
+        }
+
+        @font-face {
+            font-family: 'Lilita One';
+            src: local('Lilita One'), url('../static/lilita_one.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal
+        }
+
+        * {
+            font-family: "Lilita One", serif
+        }
+
+        #big-button-div {
+            width: 100%;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center
+        }
+
+        #big-button {
+            background-color: #c0362c;
+            border: none;
+            color: white;
+            padding: 3vw 6vw;
+            margin-bottom: 1vw;
+            margin-top: 1vw;
+            text-align: center;
+            display: inline-block;
+            font-size: 10vw;
+            border-radius: 7vw;
+            letter-spacing: 0.75vw
+        }
+
+        #big-button:hover {
+            background-color: #80241D
+        }
+
+        #instagram-button {
+            background: #000000;
+            border: none;
+            color: white;
+            padding: 1vw 2vw;
+            margin-bottom: 1vw;
+            margin-top: 1vw;
+            display: inline-block;
+            font-size: 3vw;
+            border-radius: 2vw;
+            letter-spacing: 0.5vw
+        }
+
+        #instagram-button:hover {
+            background-color: #404040
+        }
+
+        #instagram {
+            width: 3vw;
+            height: 3vw;
+            margin-right: 1.5vw
+        }
+
+        #vk-button {
+            background: #000000;
+            border: none;
+            color: white;
+            padding: 1vw 2vw;
+            margin-bottom: 1vw;
+            margin-top: 1vw;
+            display: inline-block;
+            font-size: 3vw;
+            border-radius: 2vw;
+            letter-spacing: 0.5vw
+        }
+
+        #vk-button:hover {
+            background-color: #404040
+        }
+
+        #vk {
+            width: 3vw;
+            height: 3vw;
+            margin-right: 1.5vw
+        }
+        .box {
+            display: flex;
+            align-items: center
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            font-size: 2vh;
+            color: #cc9e6e;
+            text-align: center;
+        }
+
+        @media (min-aspect-ratio: 1/1) {
+            #big-button {
+                padding: 3vh 6vh;
+                margin-bottom: 1vh;
+                margin-top: 1vh;
+                font-size: 10vh;
+                border-radius: 7vh;
+                letter-spacing: 0.75vh
+            }
+
+            #instagram-button {
+                padding: 1vh 2vh;
+                margin-bottom: 1vh;
+                margin-top: 1vh;
+                font-size: 3vh;
+                border-radius: 2vh;
+                letter-spacing: 0.5vh
+            }
+
+            #vk-button {
+                padding: 1vh 2vh;
+                margin-bottom: 1vh;
+                margin-top: 1vh;
+                font-size: 3vh;
+                border-radius: 2vh;
+                letter-spacing: 0.5vh
+            }
+
+            #instagram {
+                width: 3vh;
+                height: 3vh;
+                margin-right: 1.5vh
+            }
+
+            #vk {
+                width: 3vh;
+                height: 3vh;
+                margin-right: 1.5vh
+            }
+        }
+    </style>
+</head>
+<body style="background-color: #ffebd6">
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<header class="header">
+    <p>{{ rest }}</p>
+</header>
+<div id="big-button-div">
+    <button type="submit" id="big-button">
+        ПОЗВАТЬ<br>ОФИЦИАНТА
+    </button>
+    {% if inst %}
+        <button type="button" id="instagram-button" onclick="location.href = '{{ inst }}';">
+            <div class="box">
+                <img src="{% static 'instagram_color.png' %}" alt="_" id="instagram"/>
+                ПОДПИСАТЬСЯ НА НАШ ИНСТАГРАМ
+            </div>
+        </button>
+    {% endif %}
+    {% if vk %}
+        <button type="button" id="vk-button" onclick="location.href = '{{ vk }}';">
+        <div class="box">
+            <img src="{% static 'vk_color.png' %}" alt="_" id="vk"/>
+            ПОДПИСАТЬСЯ НА НАШ ВК
+        </div>
+        </button>
+    {% endif %}
+</div>
+<footer class="footer">
+    <p>Хотите такую же кнопку себе? t.me/hckray</p>
+</footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+<script>
+    $('#big-button').on('click', function () {
+        $('#big-button').text('Уже иду ;)')
+        $('#big-button').attr('disabled', '')
+        $.ajax({
+            method: "POST",
+            dataType: "json",
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                "session": '{{ table }}',
+                "table": '{{ fake_table }}'
+            },
+            url: '{% url "notif-view" %}'
+        })
+    })
+</script>
+</html>
