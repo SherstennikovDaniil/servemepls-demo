@@ -8,4 +8,4 @@ Back-end реализован на Django.
 
 Генерация QR'ов сделана через библиотеку PIL, за основу берётся шаблон:
 
-![Шаблон](https://github.com/SherstennikovDaniil/servemepls-demo/raw/main/caller/static/template.png, "Шаблон")
+![](https://github.com/SherstennikovDaniil/servemepls-demo/raw/main/caller/static/template.png "Шаблон")
